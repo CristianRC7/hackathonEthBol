@@ -1,59 +1,96 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import logo from '../images/localflow.jpg';
 
 function Header() {
-
+  const [navOpen, setNavOpen] = useState(false);
   const [top, setTop] = useState(true);
 
-  // detect whether user has scrolled the page down by 10px 
   useEffect(() => {
     const scrollHandler = () => {
-      window.pageYOffset > 10 ? setTop(false) : setTop(true)
+      window.pageYOffset > 10 ? setTop(false) : setTop(true);
     };
     window.addEventListener('scroll', scrollHandler);
     return () => window.removeEventListener('scroll', scrollHandler);
-  }, [top]);  
+  }, []);
+
+  useEffect(() => {
+    if (navOpen) {
+      document.body.style.overflow = 'hidden'; 
+    } else {
+      document.body.style.overflow = 'auto'; 
+    }
+  }, [navOpen]);
+
+  const toggleNav = () => {
+    setNavOpen(!navOpen);
+  };
+
+  const handleNavClick = (event, targetId) => {
+    event.preventDefault();
+    setNavOpen(false);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const headerOffset = 80;
+      const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   return (
-    <header className={`fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${!top && 'bg-white backdrop-blur-sm shadow-lg'}`}>
+    <header className={`fixed w-full z-30 transition duration-300 ease-in-out ${!top && 'bg-[rgb(70,25,147)] bg-opacity-90 backdrop-blur-sm shadow-lg'}`}>
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo */}
+          <Link to="/" className="block" aria-label="LocallyFlow">
+            <img src={logo} alt="Logo" className="h-12 w-auto" />
+          </Link>
 
-          {/* Site branding */}
-          <div className="flex-shrink-0 mr-4">
-            {/* Logo */}
-            <Link to="/" className="block" aria-label="LocallyFlow">
-              <svg className="w-8 h-8" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <radialGradient cx="21.152%" cy="86.063%" fx="21.152%" fy="86.063%" r="79.941%" id="header-logo">
-                    <stop stopColor="#F7f8f8" offset="0%" />
-                    <stop stopColor="#6e7783" offset="25.871%" />
-                    <stop stopColor="#3C1993" offset="100%" />
-                  </radialGradient>
-                </defs>
-                <rect width="32" height="32" rx="16" fill="url(#header-logo)" fillRule="nonzero" />
-              </svg>
+          {/* Mobile Menu Button */}
+          <button className="text-2xl md:hidden p-2" onClick={toggleNav}>
+            {navOpen ? <FaTimes className="text-white" /> : <FaBars className="text-black" />}
+          </button>
+
+          {/* Navigation */}
+          <nav
+            className={`fixed top-0 left-0 w-full h-full bg-[rgb(70,25,147)] flex flex-col items-center justify-center gap-6 transform transition-transform duration-500 ease-in-out ${
+              navOpen ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
+            } md:flex md:flex-row md:relative md:translate-y-0 md:opacity-100 md:h-auto md:bg-transparent md:gap-8`}
+          >
+            <Link
+              to="#home"
+              onClick={(e) => handleNavClick(e, 'home')}
+              className={`text-xl md:text-base ${top ? 'text-black' : 'text-white'} hover:text-white hover:bg-black rounded-md px-4 py-2 transition-colors duration-300`}
+            >
+              INICIO
             </Link>
-          </div>
-
-          {/* Site navigation */}
-          <nav className="flex flex-grow">
-            <ul className="flex flex-grow justify-end flex-wrap items-center">
-              <li>
-                <Link to="/signin" className="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out">Sign in</Link>
-              </li>
-              <li>
-                <Link to="/signup" className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3">
-                  <span>Sign up</span>
-                  <svg className="w-3 h-3 fill-current text-gray-400 flex-shrink-0 ml-2 -mr-1" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z" fillRule="nonzero" />
-                  </svg>                  
-                </Link>
-              </li>
-            </ul>
-
+            <Link
+              to="#galeria"
+              onClick={(e) => handleNavClick(e, 'galeria')}
+              className={`text-xl md:text-base ${top ? 'text-black' : 'text-white'} hover:text-white hover:bg-black rounded-md px-4 py-2 transition-colors duration-300`}
+            >
+              GALERÍA
+            </Link>
+            <Link
+              to="#companies"
+              onClick={(e) => handleNavClick(e, 'companies')}
+              className={`text-xl md:text-base ${top ? 'text-black' : 'text-white'} hover:text-white hover:bg-black rounded-md px-4 py-2 transition-colors duration-300`}
+            >
+              EMPRESAS
+            </Link>
+            <Link
+              to="#contactanos"
+              onClick={(e) => handleNavClick(e, 'contactanos')}
+              className={`text-xl md:text-base ${top ? 'text-black' : 'text-white'} hover:text-white hover:bg-black rounded-md px-4 py-2 transition-colors duration-300`}
+            >
+              CONTÁCTANOS
+            </Link>
           </nav>
-
         </div>
       </div>
     </header>
