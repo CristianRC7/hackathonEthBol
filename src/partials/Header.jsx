@@ -82,6 +82,13 @@ function Header() {
             FUNCIONAMIENTO
           </Link>
           <Link
+            to="#carousel"
+            onClick={(e) => handleNavClick(e, 'carousel')}
+            className="text-xl md:text-base hover:text-black hover:bg-white rounded-md px-4 py-2 transition-colors duration-300"
+          >
+            IMAGENES
+          </Link>
+          <Link
             to="#contactanos"
             onClick={(e) => handleNavClick(e, 'contactanos')}
             className="text-xl md:text-base hover:text-black hover:bg-white rounded-md px-4 py-2 transition-colors duration-300"
