@@ -61,7 +61,7 @@ function Header() {
           <Link
             to="#home"
             onClick={(e) => handleNavClick(e, 'home')}
-            className="text-xl md:text-base hover:text-black hover:bg-white rounded-md px-4 py-2 transition-colors duration-300"
+            className="text-xl md:text-base font-bold hover:text-black hover:bg-white rounded-md px-4 py-2 transition-colors duration-300"
           >
             INICIO
           </Link>
@@ -69,7 +69,7 @@ function Header() {
           <Link
             to="#features"
             onClick={(e) => handleNavClick(e, 'features')}
-            className="text-xl md:text-base hover:text-black hover:bg-white rounded-md px-4 py-2 transition-colors duration-300"
+            className="text-xl md:text-base font-bold hover:text-black hover:bg-white rounded-md px-4 py-2 transition-colors duration-300"
           >
             SOLUCIONES
           </Link>
@@ -78,28 +78,28 @@ function Header() {
           <Link
             to="#featuresblocks"
             onClick={(e) => handleNavClick(e, 'featuresblocks')}
-            className="text-xl md:text-base hover:text-black hover:bg-white rounded-md px-4 py-2 transition-colors duration-300"
+            className="text-xl md:text-base font-bold hover:text-black hover:bg-white rounded-md px-4 py-2 transition-colors duration-300"
           >
             FUNCIONAMIENTO
           </Link>
           <Link
             to="#encuestas"
             onClick={(e) => handleNavClick(e, 'encuestas')}
-            className="text-xl md:text-base hover:text-black hover:bg-white rounded-md px-4 py-2 transition-colors duration-300"
+            className="text-xl md:text-base font-bold hover:text-black hover:bg-white rounded-md px-4 py-2 transition-colors duration-300"
           >
             ENCUESTAS
           </Link>
           <Link
             to="#carousel"
             onClick={(e) => handleNavClick(e, 'carousel')}
-            className="text-xl md:text-base hover:text-black hover:bg-white rounded-md px-4 py-2 transition-colors duration-300"
+            className="text-xl md:text-base font-bold hover:text-black hover:bg-white rounded-md px-4 py-2 transition-colors duration-300"
           >
             IMAGENES
           </Link>
           <Link
             to="#footer"
             onClick={(e) => handleNavClick(e, 'footer')}
-            className="text-xl md:text-base hover:text-black hover:bg-white rounded-md px-4 py-2 transition-colors duration-300"
+            className="text-xl md:text-base font-bold hover:text-black hover:bg-white rounded-md px-4 py-2 transition-colors duration-300"
           >
             CONTÁCTANOS
           </Link>

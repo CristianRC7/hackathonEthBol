@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Transition from '../utils/Transition';
 
-import FeaturesBg from '../images/features-bg.png';
-import Imagen1 from '../images/Hanako_Kun.jpg';
+import Imagen1 from '../images/flow.jpg';
+import Imagen2 from '../images/market.jpg';
 
 function Features() {
 
@@ -105,7 +105,7 @@ function Features() {
                   leaveEnd="opacity-0 -translate-y-16"
                 >
                   <div className="relative inline-flex flex-col">
-                    <img className="md:max-w-none mx-auto rounded" src={Imagen1} width="500" height="462" alt="Features bg" />
+                    <img className="md:max-w-none mx-auto rounded" src={Imagen2} width="500" height="462" alt="Features bg" />
                   </div>
                 </Transition>
               </div>
