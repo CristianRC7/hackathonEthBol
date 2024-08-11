@@ -13,7 +13,7 @@ function Footer() {
             href="https://www.facebook.com/profile.php?id=61563315706740" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="mx-3 text-xl hover:text-blue-600 transition-colors duration-300"
+            className="mx-3 text-xl hover:bg-white hover:text-blue-600 transition-colors duration-300 rounded-full p-2"
           >
             <FaFacebook />
           </a>
@@ -21,7 +21,7 @@ function Footer() {
             href="https://www.instagram.com/localflowbo/" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="mx-3 text-xl hover:text-pink-600 transition-colors duration-300"
+            className="mx-3 text-xl hover:bg-white hover:text-pink-600 transition-colors duration-300 rounded-full p-2"
           >
             <FaInstagram />
           </a>
@@ -29,7 +29,7 @@ function Footer() {
             href="https://www.tiktok.com/@localflowbo" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="mx-3 text-xl hover:text-black transition-colors duration-300"
+            className="mx-3 text-xl hover:bg-white hover:text-black transition-colors duration-300 rounded-full p-2"
           >
             <FaTiktok />
           </a>
@@ -37,7 +37,7 @@ function Footer() {
             href="https://x.com/localflowbo" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="mx-3 text-xl hover:text-blue-500 transition-colors duration-300"
+            className="mx-3 text-xl hover:bg-white hover:text-blue-500 transition-colors duration-300 rounded-full p-2"
           >
             <FaTwitter />
           </a>
@@ -46,11 +46,11 @@ function Footer() {
         {/* Redes de los creadores */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {[
-            { name: 'Andrés Cladera', linkedin: 'https://www.linkedin.com/in/accladera/' },
+            { name: 'Ana Carolina Cladera', linkedin: 'https://www.linkedin.com/in/accladera/' },
             { name: 'María Lourdes Vaca Pessoa', linkedin: 'https://www.linkedin.com/in/maria-lourdes-vaca-pessoa-10aa931b2/' },
-            { name: 'Diego Guzmán', linkedin: 'https://www.linkedin.com/in/diego-guz/' },
+            { name: 'Diego Jhoan Guzmán Montoya', linkedin: 'https://www.linkedin.com/in/diego-guz/' },
             { name: 'Walter Ronny Ibañez Saucedo', linkedin: 'https://www.linkedin.com/in/walter-ronny-iba%C3%B1ez-saucedo-192a05255/' },
-            { name: 'Cristian Ramírez', linkedin: 'https://www.linkedin.com/in/cristian-ramirez7/' },
+            { name: 'Cristian David Ramirez Callejas', linkedin: 'https://www.linkedin.com/in/cristian-ramirez7/' },
           ].map((creator, index) => (
             <div key={index} className="text-center">
               <Link 
