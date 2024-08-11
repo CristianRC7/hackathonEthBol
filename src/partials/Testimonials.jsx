@@ -15,13 +15,17 @@ function Testimonials() {
     setCurrentQuestion(currentQuestion - 1);
   };
 
+  const handleReturnToFirstQuestion = () => {
+    setCurrentQuestion(1);
+  };
+
   // Datos para la primera pregunta
   const dataFirstQuestion = {
     labels: ['Sí', 'No'],
     datasets: [
       {
         label: 'Responses',
-        data: [14, 6],
+        data: [19, 11],
         backgroundColor: ['#4caf50', '#f44336'],
         hoverBackgroundColor: ['#66bb6a', '#e57373'],
         borderWidth: 1,
@@ -35,7 +39,7 @@ function Testimonials() {
     datasets: [
       {
         label: 'Responses',
-        data: [12, 22],
+        data: [9, 21],
         backgroundColor: ['#4caf50', '#f44336'],
         hoverBackgroundColor: ['#66bb6a', '#e57373'],
         borderWidth: 1,
@@ -52,21 +56,16 @@ function Testimonials() {
       'Todas',
       'Atención al cliente y ventas',
       'Soporte técnico',
-      'Ventas',
-      'Podría ser en las diferentes áreas mencionadas',
       'Atención al cliente',
       'Desconozco chatbot',
-      'Atención al cliente, creo que sería más útil',
       'Marketing',
-      'Ventas, mi negocio está enfocado a ventas',
       'Soporte',
-      'Atención al cliente, apoyo en ventas para enganchar y el soporte técnico para direccionar',
       'Ventas y para respuestas al cliente',
     ],
     datasets: [
       {
         label: 'Responses',
-        data: [2, 2, 2, 1, 2, 2, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1],
+        data: [2, 4, 5, 2, 2, 2, 3, 2, 2, 2, 1, 2],
         backgroundColor: [
           '#4caf50', '#f44336', '#ffeb3b', '#2196f3', '#ff9800', '#9c27b0',
           '#00bcd4', '#8bc34a', '#cddc39', '#ff5722', '#795548', '#607d8b',
@@ -82,13 +81,13 @@ function Testimonials() {
     ],
   };
 
-  // datos para la cuarta pregunta
+  // Datos para la cuarta pregunta
   const dataFourthQuestion = {
     labels: ['0$', '2$', '5$', '10$'],
     datasets: [
       {
         label: 'Responses',
-        data: [5, 8, 7, 2],
+        data: [3, 9, 13, 5],
         backgroundColor: ['#4caf50', '#f44336', '#ff9800', '#2196f3'],
         hoverBackgroundColor: ['#66bb6a', '#e57373', '#ffb74d', '#64b5f6'],
         borderWidth: 1,
@@ -176,7 +175,7 @@ function Testimonials() {
           </div>
 
           {/* Chart */}
-          <div className="mt-8 max-w-3xl mx-auto chart-container">
+          <div className={`mt-8 max-w-3xl mx-auto chart-container ${currentQuestion === 3 ? 'mb-32' : ''}`}>
             {currentQuestion === 1 && <Pie data={dataFirstQuestion} options={optionsPie} />}
             {currentQuestion === 2 && <Pie data={dataSecondQuestion} options={optionsPie} />}
             {currentQuestion === 3 && <Pie data={dataThirdQuestion} options={optionsPie} />}
@@ -185,21 +184,41 @@ function Testimonials() {
 
           {/* Navigation Buttons */}
           <div className="mt-8 text-center">
-            {currentQuestion > 1 && (
-              <button 
-                className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 mr-4"
-                onClick={handlePreviousQuestion}
-              >
-                Pregunta Anterior
-              </button>
+            {currentQuestion === 4 && (
+              <>
+                <button 
+                  className="bg-violet-800 text-white py-2 px-4 rounded hover:bg-violet-700 mr-4"
+                  onClick={handlePreviousQuestion}
+                >
+                  Pregunta Anterior
+                </button>
+                <button 
+                  className="bg-violet-800 text-white py-2 px-4 rounded hover:bg-violet-700"
+                  onClick={handleReturnToFirstQuestion}
+                >
+                  Regresar al Inicio
+                </button>
+              </>
             )}
             {currentQuestion < 4 && (
-              <button 
-                className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-                onClick={handleNextQuestion}
-              >
-                Siguiente Pregunta
-              </button>
+              <>
+                {currentQuestion > 1 && (
+                  <button 
+                    className="bg-violet-800 text-white py-2 px-4 rounded hover:bg-violet-700 mr-4"
+                    onClick={handlePreviousQuestion}
+                  >
+                    Pregunta Anterior
+                  </button>
+                )}
+                {currentQuestion < 4 && (
+                  <button 
+                    className="bg-violet-800 text-white py-2 px-4 rounded hover:bg-violet-700"
+                    onClick={handleNextQuestion}
+                  >
+                    Siguiente Pregunta
+                  </button>
+                )}
+              </>
             )}
           </div>
 
