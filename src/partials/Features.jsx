@@ -3,12 +3,10 @@ import Transition from '../utils/Transition';
 
 import FeaturesBg from '../images/features-bg.png';
 import Imagen1 from '../images/Hanako_Kun.jpg';
-import FeaturesElement from '../images/features-element.png';
 
 function Features() {
 
   const [tab, setTab] = useState(1);
-
   const tabs = useRef(null);
 
   const heightFix = () => {
@@ -92,7 +90,6 @@ function Features() {
                 >
                   <div className="relative inline-flex flex-col">
                     <img className="md:max-w-none mx-auto rounded" src={Imagen1} width="500" height="462" alt="Features bg" />
-                    <img className="md:max-w-none absolute w-full left-0 transform animate-float" src={FeaturesElement} width="500" height="44" alt="Element" style={{ top: '30%' }} />
                   </div>
                 </Transition>
                 {/* Item 2 */}
@@ -108,8 +105,7 @@ function Features() {
                   leaveEnd="opacity-0 -translate-y-16"
                 >
                   <div className="relative inline-flex flex-col">
-                    <img className="md:max-w-none mx-auto rounded" src={FeaturesBg} width="500" height="462" alt="Features bg" />
-                    <img className="md:max-w-none absolute w-full left-0 transform animate-float" src={FeaturesElement} width="500" height="44" alt="Element" style={{ top: '30%' }} />
+                    <img className="md:max-w-none mx-auto rounded" src={Imagen1} width="500" height="462" alt="Features bg" />
                   </div>
                 </Transition>
               </div>
