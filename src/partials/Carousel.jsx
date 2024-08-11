@@ -1,28 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import imagen1 from '../images/Hanako_Kun.jpg'; 
-import imagen2 from '../images/Hanako_Kun.jpg'; 
-import imagen3 from '../images/Hanako_Kun.jpg'; 
+import imagen1 from '../images/loguito.png'; 
+import imagen2 from '../images/rendimiento.png'; 
+import imagen3 from '../images/rapidez.png';
+import imagen4 from '../images/eficacia.png';
+import imagen5 from '../images/frase.png';
 
-const images = [imagen1, imagen2, imagen3]; 
+const images = [imagen1, imagen2, imagen3, imagen4, imagen5]; 
 
 function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const intervalRef = useRef(null);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000); 
+    startInterval();
 
-    return () => clearInterval(intervalId); 
+    return () => clearInterval(intervalRef.current); 
   }, []);
+
+  const startInterval = () => {
+    clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 7000);
+  };
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    startInterval(); 
   };
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    startInterval(); 
   };
 
   return (

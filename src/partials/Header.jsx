@@ -89,8 +89,8 @@ function Header() {
             IMAGENES
           </Link>
           <Link
-            to="#contactanos"
-            onClick={(e) => handleNavClick(e, 'contactanos')}
+            to="#footer"
+            onClick={(e) => handleNavClick(e, 'footer')}
             className="text-xl md:text-base hover:text-black hover:bg-white rounded-md px-4 py-2 transition-colors duration-300"
           >
             CONTÁCTANOS
