@@ -14,15 +14,23 @@ function Header() {
   const handleNavClick = (event, targetId) => {
     event.preventDefault();
     setNavOpen(false);
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      const headerOffset = 80;
-      const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - headerOffset;
+    
+    if (targetId === 'home') {
       window.scrollTo({
-        top: offsetPosition,
+        top: 0,
         behavior: 'smooth',
       });
+    } else {
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        const headerOffset = 80;
+        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        });
+      }
     }
   };
 
@@ -94,4 +102,3 @@ function Header() {
 }
 
 export default Header;
-
