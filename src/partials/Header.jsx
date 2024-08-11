@@ -65,19 +65,21 @@ function Header() {
           >
             INICIO
           </Link>
+
           <Link
-            to="#galeria"
-            onClick={(e) => handleNavClick(e, 'galeria')}
+            to="#features"
+            onClick={(e) => handleNavClick(e, 'features')}
             className="text-xl md:text-base hover:text-black hover:bg-white rounded-md px-4 py-2 transition-colors duration-300"
           >
-            GALERÍA
+            SOLUCIONES
           </Link>
+
           <Link
-            to="#companies"
-            onClick={(e) => handleNavClick(e, 'companies')}
+            to="#featuresblocks"
+            onClick={(e) => handleNavClick(e, 'featuresblocks')}
             className="text-xl md:text-base hover:text-black hover:bg-white rounded-md px-4 py-2 transition-colors duration-300"
           >
-            EMPRESAS
+            FUNCIONAMIENTO
           </Link>
           <Link
             to="#contactanos"

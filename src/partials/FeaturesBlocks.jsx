@@ -3,7 +3,7 @@ import { FaDownload, FaCog, FaServer, FaExchangeAlt, FaShieldAlt, FaRegHandshake
 
 function FeaturesBlocks() {
   return (
-    <section className="relative">
+    <section id="featuresblocks" className="relative">
       {/* Section background */}
       <div className="absolute inset-0 top-1/2 md:mt-24 lg:mt-0 bg-gray-900 pointer-events-none" aria-hidden="true"></div>
       <div className="absolute left-0 right-0 bottom-0 m-auto w-px p-px h-20 bg-gray-200 transform translate-y-1/2"></div>
