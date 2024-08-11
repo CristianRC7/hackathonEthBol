@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import logo from '../images/localflow.jpg';
+import logo from '../images/localflow.png';
 
 function Header() {
   const [navOpen, setNavOpen] = useState(false);
