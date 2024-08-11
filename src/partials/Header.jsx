@@ -62,9 +62,19 @@ function Header() {
               navOpen ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
             } md:flex md:flex-row md:relative md:translate-y-0 md:opacity-100 md:h-auto md:bg-transparent md:gap-8`}
           >
+            {/* Close Button for Mobile Menu */}
+            {navOpen && (
+              <button 
+                className="absolute top-4 right-4 text-2xl text-white"
+                onClick={toggleNav}
+              >
+                <FaTimes />
+              </button>
+            )}
+
             <Link
-              to="#home"
-              onClick={(e) => handleNavClick(e, 'home')}
+              to="#herohome"
+              onClick={(e) => handleNavClick(e, 'herohome')}
               className={`text-xl md:text-base ${top ? 'text-black' : 'text-white'} hover:text-white hover:bg-black rounded-md px-4 py-2 transition-colors duration-300`}
             >
               INICIO
